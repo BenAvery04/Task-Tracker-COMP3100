@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>Task</title>
+</head>
+
+<% var fields = { name: "", taskname: "", description: "", assigned: "", listId: "", taskId: "", f_edit: "", f_members: "", status0: "", status1: "", status2: ""} %> 
+<% if(typeof fill !== "undefined") fields = fill %>
+
+<body>
+    <form action="/<%= fields.listId %>/<%= fields.taskId %>/update" method="post">
+        <input type="hidden" name="name" value="<%= fields.name %>"/>
+        <p>Name:</p>
+        <p><input name="taskname" type="text" value="<%= fields.taskname %>"/></p>
+        <p>Description:</p>
+        <p><textarea name="description"><%= fields.description %></textarea></p>
+        <p>Status:
+        <select name="status">
+            <option value="0" <%- fields.status0 %>>Not Started</option>
+            <option value="1" <%- fields.status1 %>>In Progress</option>
+            <option value="2" <%- fields.status2 %>>Completed</option>
+        </select>
+        </p>
+        <p>Assigned: <%= fields.assigned %></p>
+        <%- fields.f_members %>
+        <p><input type="checkbox" name="assign" value="">Unassign</p>
+        <p><button <%= fields.f_edit %> type="submit">Update</button></p>
+    </form>
+    <form action="/<%= fields.listId %>/<%= fields.taskId %>/history" method="get">
+        <input type="hidden" name="name" value="<%= fields.name %>"/>
+        <p><button <%= fields.f_edit %> type="submit">History</button></p>
+    </form>
+    <form action="/<%= fields.listId %>/<%= fields.taskId %>" method="post">
+        <input type="hidden" name="name" value="<%= fields.name %>"/>
+        <button <%= fields.f_edit %> type="submit">Delete</button>
+    </form>
+
+</body>
+</html>

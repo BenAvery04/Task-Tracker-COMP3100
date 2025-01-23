@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title>User</title>
+</head>
+
+<% var fields = { name: "", password: "", f_tasklists: ""} %> 
+<% if(typeof fill !== "undefined") fields = fill %>
+
+<body>
+    <p><strong><span style="font-size:26px;">Welcome <%= fields.name %></span></strong></p>
+    <p>Task Lists:</p>
+    <form action="user/taskLists" method="post">
+        <input type="hidden" name="name" value="<%= fields.name %>"/>
+        <input type="hidden" name="password" value="<%= fields.password %>"/>
+        <p><input name="listId" type="text"/><button type="submit">Add Task List</button></p>
+    </form>
+    <form method="get">
+        <input type="hidden" name="name" value="<%= fields.name %>"/>
+        <%- fields.f_tasklists %>
+    </form>
+</body>
+</html>

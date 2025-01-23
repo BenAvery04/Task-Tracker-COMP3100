@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Task List</title>
+</head>
+
+<% var fields = { name: "", listId: "", f_tasks: "", members: "", f_edit: ""} %> 
+<% if(typeof fill !== "undefined") fields = fill %>
+
+<body>
+    <form action="/<%= fields.listId %>" method="get">
+        <input type="hidden" name="name" value="<%= fields.name %>"/>
+        <input type="hidden" name="page" value="grid"/>
+        <p><button type="submit" <%- fields.f_edit %>>Display Grid</button></p>
+    </form>
+    <p><span style="font-size:40px;"><%= fields.listId %></span></p>
+    <p>Members: <%= fields.members %></p>
+    <form action="/<%= fields.listId %>/invite" method="post">
+        <input type="hidden" name="name" value="<%= fields.name %>"/>
+        <p><input name="newUser" type="text"/><button type="submit">Add New User</button></p>
+    </form>
+    <form action="/<%= fields.listId %>" method="get">
+        <input type="hidden" name="name" value="<%= fields.name %>"/>
+        <input type="hidden" name="page" value="addtask"/>
+        <p><button type="submit" <%- fields.f_edit %>>Create New Task</button></p>
+    </form>
+    <form method="get">
+        <p>Tasks:</p>
+        <input type="hidden" name="name" value="<%= fields.name %>"/>
+        <%- fields.f_tasks %>
+    </form>
+</body>
+</html>

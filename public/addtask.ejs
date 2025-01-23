@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+	<title>Add Task</title>
+</head>
+
+<% var fields = { name: "", listId: ""} %> 
+<% if(typeof fill !== "undefined") fields = fill %>
+
+<body>
+<form action="/<%= fields.listId %>" method="post">
+    <input type="hidden" name="name" value="<%= fields.name %>"/>
+    <p>Name:</p>
+    <p><input name="taskname" type="text" /></p>
+    <p>Description:</p>
+    <p><textarea name="description"></textarea></p>
+    <p><button type="submit">Create Task</button></p>
+</form>
+</body>
+</html>

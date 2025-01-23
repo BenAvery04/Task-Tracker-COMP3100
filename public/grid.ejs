@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Grid</title>
+
+  <script>
+
+    var dragged_object
+
+    function dragStartHandler(ev) {
+      // Add the target element's id to the data transfer object
+      //ev.dataTransfer.setData("text/plain", ev.target.id)
+      console.log(ev.target)
+      console.log("drag started")
+      dragged_object = ev.target
+    }
+
+    function set_drop_element(col) {
+      col.addEventListener("dragenter", (event) => {
+        event.preventDefault();
+      });
+
+      col.addEventListener("dragover", (event) => {
+        event.preventDefault();
+      });
+
+      col.addEventListener("dragenter", (event) => {
+        event.preventDefault();
+      });
+
+      col.addEventListener("drop", (event) => {
+        console.log("dropped here", event, event.dataTransfer.getData("text/plain"))
+        console.log("dragged", dragged_object, "to", event.target)
+        if (event.target.className == "kanban-column-list"){
+          event.target.appendChild(dragged_object)
+        }
+      });
+    }
+
+    window.addEventListener("load", (event) => { // load the cards
+      for (let col of document.getElementsByClassName("kanban-column-list")){
+        set_drop_element(col)
+        for (let card of col.children){
+            card.addEventListener("dragstart", dragStartHandler)
+        }
+      }
+
+      console.log("cards loaded");
+    });
+  </script>
+
+  <template id="cardTemplate">
+    <div class="card" id="BlankCard">
+      <form method = "get">
+        <input type="hidden" name="name" value="username"/>
+        <button formaction="/listid/taskid">Task Name</button>
+      </form>
+    </div>
+  </template>
+
+</head>
+
+<% var fields = { name: "", listId: "", f_tasks0: "", f_tasks1: "", f_tasks2: ""} %> 
+<% if(typeof fill !== "undefined") fields = fill %>
+<style>
+html, 
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 
+    -apple-system, 
+    BlinkMacSystemFont, 
+    "Segoe UI", 
+    Roboto, 
+    Oxygen-Sans, 
+    Ubuntu, 
+    Cantarell, 
+    "Helvetica Neue", 
+    sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.navbar {
+  padding: 1rem;
+  background-color: #222;
+  color: #f5f5f5;
+  flex-shrink: 0;
+}
+
+.kanban {
+  display: flex;
+  flex: 1 1 auto;
+  overflow: auto;
+}
+
+.kanban-container {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0 10px 10px;
+}
+
+.kanban-column {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  min-width: 300px;
+  max-width: 300px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  background-color: #eee;
+}
+
+.kanban-column-header {
+  padding: 10px;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.kanban-column-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+  margin: 0;
+  padding: 10px 10px 0;
+  list-style: none;
+}
+
+.kanban-column-footer {
+  padding: 10px;
+  font-size: 0.875rem;
+  border-top: 1px solid #e5e5e5;
+  background-color: #f5f5f5;
+}
+
+.card {
+  padding: 20px 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  margin-bottom: 10px;
+  cursor: grab;
+}
+
+.card input[type="text"] {
+  background-color: gray
+
+}
+
+.card:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+</style>
+<body>
+  <div class="app">
+    <div class="navbar">
+        <%= fields.listId %>
+    </div>
+    <div class="kanban">
+      <div class="kanban-container">
+        <div class="kanban-column">
+          <div class="kanban-column-header">
+            Not Started
+          </div>
+          <div class="kanban-column-list" id="1">
+            <%- fields.f_tasks0 %>
+          </div>
+        </div>
+        <div class="kanban-column">
+            <div class="kanban-column-header">
+                In Progress
+            </div>
+          <div class="kanban-column-list" id="2">
+            <%- fields.f_tasks1 %>
+          </div>
+        </div>
+        <div class="kanban-column">
+            <div class="kanban-column-header">
+                Completed
+            </div>
+          <div class="kanban-column-list" id="3">
+            <%- fields.f_tasks2 %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

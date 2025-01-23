@@ -1,0 +1,16 @@
+<html>
+<head>
+	<title>History</title>
+</head>
+
+<% var fields = { name: "", f_history: ""} %> 
+<% if(typeof fill !== "undefined") fields = fill %>
+
+<body>
+    <p>Task Hsitory:</p>
+    <form method="get">
+        <input type="hidden" name="name" value="<%= fields.name %>"/>
+        <%- fields.f_history %>
+    </form>
+</body>
+</html>
