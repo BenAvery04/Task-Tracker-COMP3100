@@ -1,9 +1,11 @@
-This is the project repo for COMP3100 F24 term project.
+## About
+
+This is the project repo for COMP3100 F24 term project. The purpose of the project was to test familiarity with Javascript, HTTP requests, unit tests and usage of database APIs such as MongoDB. CSS and page ascetics were not tested and were not accounted for in the creation of the project. The Grid/Kanban view was a required feature of the project however was not properly implemented before the submission deadline. The code remains identical to what was submitted for the course project. Attributions are listed in attributions.md.
 
  ## Layout
- All the necessary code files are included directly in the repo. Any documentation is in the doc folder. Test related files are in the tests folder.
+ All the necessary code files are included directly in the repo. Test related files are in the tests folder.
 
- ## Arcitecture
+ ## Architecture
  `appClasses.mjs`: Includes all the classes required for the project  
  `endpoints.mjs`: Includes functions for app.mjs http requests and generates html pages for client  
  `dbAdapter.mjs`: Includes functions to interact with the mongo database  
@@ -60,7 +62,7 @@ This is the project repo for COMP3100 F24 term project.
 
     To get the history at a particular date use GET /:listID/:task/history/:date. The date can be obtained from GET /:listID/:task/history  
 
- * Retreving details of multiple tasks  
+ * Retrieving details of multiple tasks  
     HTTP Call: GET /:listID  
     listID: the id of the list the tasks are apart of  
 
@@ -115,4 +117,4 @@ Unit tests can be ran using "node tests/test-app.mjs"
 The supertest module is required which can be installed using "npm install supertest"  
 Mongo database needs to be manually cleared after tests. 
 
-Checking Task History fails because since the task was updated immeditly after it was created, not enough time has passed for the date to change and the previous version gets overwritten.  
+Checking Task History fails because since the task was updated immediately after it was created, not enough time has passed for the date to change and the previous version gets overwritten.  
