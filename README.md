@@ -1,6 +1,21 @@
 ## About
 
-This is the project repo for COMP3100 F24 term project. The purpose of the project was to test familiarity with Javascript, HTTP requests, unit tests and usage of database APIs such as MongoDB. CSS and page ascetics were not tested and were not accounted for in the creation of the project. The Grid/Kanban view was a required feature of the project however was not properly implemented before the submission deadline. The code remains identical to what was submitted for the course project. Attributions are listed in attributions.md.
+This is the project repo for COMP3100 F24 term project. The purpose of the project was to test familiarity with Javascript, HTTP requests, unit tests and usage of database APIs such as MongoDB. CSS and page ascetics were not tested and were not accounted for in the creation of the project. The Grid/Kanban view was a required feature of the project however was not properly implemented before the submission deadline. The code remains identical to what was submitted for the course project. Attributions are listed in attributions.md.  
+## Demo  
+
+Link to demo video:  
+https://drive.google.com/file/d/1nei8HGOX9hN8aZ9CFROWy0e6gbOQNHBU/view?usp=sharing  
+
+ ## How to run
+In order to run the server you first need the express and mongodb modules.  
+These can be installed with "npm install express" and "npm install mongodb"
+
+To run the server run serve.mjs with "node serve.mjs"  
+A local host will then be provided.
+
+Http requests can be tested using a browser or a program such as postman.  
+
+All data is stored in a mongo database named "tasklist" 
 
  ## Layout
  All the necessary code files are included directly in the repo. Test related files are in the tests folder.
@@ -96,20 +111,6 @@ This is the project repo for COMP3100 F24 term project. The purpose of the proje
     "assign"= Name of user to assign to task (optional)   
 
     This feature uses the same call as updating task information and can be done at the same time.  
-
- ## How to run
-In order to run the server you first need the express and mongodb modules.  
-These can be installed with "npm install express" and "npm install mongodb"
-
-To run the server run serve.mjs with "node serve.mjs"  
-A local host will then be provided.
-
-Http requests can be tested using a browser or a program such as postman.  
-
-All data is stored in a mongo database named "tasklist" 
-
-Link to demo video:  
-https://drive.google.com/file/d/1nei8HGOX9hN8aZ9CFROWy0e6gbOQNHBU/view?usp=sharing   
 
 ## Unit Tests
 
