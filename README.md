@@ -8,7 +8,10 @@ https://drive.google.com/file/d/1nei8HGOX9hN8aZ9CFROWy0e6gbOQNHBU/view?usp=shari
 
  ## How to run
 In order to run the server you first need the express and mongodb modules.  
-These can be installed with "npm install express" and "npm install mongodb"
+These can be installed with "npm install express" and "npm install mongodb"  
+
+MongoDB must also be installed and set up. You can download the free community edition at:  
+https://www.mongodb.com/products/self-managed/community-edition  
 
 To run the server run serve.mjs with "node serve.mjs"  
 A local host will then be provided.
