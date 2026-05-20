@@ -1,6 +1,6 @@
 ## About
 
-This is the project repo for COMP3100 F24 term project. The purpose of the project was to test familiarity with Javascript, HTTP requests, unit tests and usage of database APIs such as MongoDB. CSS and page ascetics were not tested and were not accounted for in the creation of the project. The Grid/Kanban view was a required feature of the project however was not properly implemented before the submission deadline. The code remains identical to what was submitted for the course project. Attributions are listed in attributions.md.  
+This is the project repo for COMP3100 F24 term project. The purpose of the project was to test familiarity with Javascript, HTTP requests, unit tests and usage of database APIs such as MongoDB. CSS and page ascetics were not tested and were not accounted for in the creation of the project. The Grid/Kanban view was a required feature of the project however was not properly implemented before the submission deadline. The code remains identical to what was submitted for the course project. 
 ## Demo  
 
 Link to demo video:  
